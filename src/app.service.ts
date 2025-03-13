@@ -6,7 +6,7 @@ export class AppService {
   constructor(private readonly configService: ConfigService) {}
 
   getHello() {
-    // process.env.DB_PASSWORD 와 같다다
+    // process.env.DB_PASSWORD 와 같다
     return this.configService.get('DB_PASSWORD')
     
   }
