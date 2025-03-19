@@ -1,5 +1,4 @@
 import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
-import { query } from 'express';
 
 @Controller('api/workspaces/:url/dms')
 export class DmsController {
@@ -12,5 +11,15 @@ export class DmsController {
     @Post(':id/chats')
     postChat(@Body() body) {
 
+    }
+
+    @Post(':id/images')
+    postImages(){
+
+    }
+
+    @Get(':id/unreads')
+    getDmsUnreads(){
+        
     }
 }

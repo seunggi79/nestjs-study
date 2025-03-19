@@ -6,10 +6,15 @@ import { UsersService } from './users.service';
 export class UsersController {
     constructor (private userService: UsersService){
 
-    } // usersService 연결결
+    } // usersService 연결
     @Get()
     getUsers(@Req() req) {
         return req.user;
+    }
+
+    @Get()
+    getUsersId(){
+        
     }
 
     @Post()
