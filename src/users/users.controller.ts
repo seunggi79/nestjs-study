@@ -1,20 +1,26 @@
 import { Body, Controller, Get, Post, Req, Res } from '@nestjs/common';
 import { JoinRequestDto } from './dto/join.request.dto';
 import { UsersService } from './users.service';
+import { ApiOkResponse, ApiResponse } from '@nestjs/swagger';
+import { UserDto } from 'src/common/dto/user.dto';
 
 @Controller('users')
 export class UsersController {
-    constructor (private userService: UsersService){
+    constructor(private userService: UsersService) {
 
     } // usersService 연결
+
+    @ApiResponse({
+        type: UserDto
+    })
     @Get()
     getUsers(@Req() req) {
         return req.user;
     }
 
     @Get()
-    getUsersId(){
-        
+    getUsersId() {
+
     }
 
     @Post()
@@ -22,6 +28,9 @@ export class UsersController {
         this.userService.postUsers(body.email, body.nickname, body.password)
     }
 
+    @ApiOkResponse({
+        type: UserDto
+    })
     @Post('login')
     logIn() {
 
