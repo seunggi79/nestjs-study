@@ -3,6 +3,7 @@ import { JoinRequestDto } from './dto/join.request.dto';
 import { UsersService } from './users.service';
 import { ApiOkResponse, ApiResponse } from '@nestjs/swagger';
 import { UserDto } from 'src/common/dto/user.dto';
+import { User } from 'src/common/decorator/user.decorator';
 
 @Controller('users')
 export class UsersController {
@@ -14,8 +15,8 @@ export class UsersController {
         type: UserDto
     })
     @Get()
-    getUsers(@Req() req) {
-        return req.user;
+    getUsers(@User() user) {
+        return user;
     }
 
     @Get()
