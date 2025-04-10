@@ -25,10 +25,15 @@ import {
         });
       }
   
+
       response.status(status).json({
         success: false,
         code: status,
         data: err.message,
       });
+
+
+
+
     }
   }
